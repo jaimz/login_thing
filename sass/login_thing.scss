@@ -1,0 +1,349 @@
+@import "palette";
+@import "ctrls";
+@import "dialog";
+@import "avatar";
+
+$sixteen-nine: (16 / 9);
+$four-three: (4 / 3);
+
+
+* {
+  box-sizing: border-box;
+}
+
+/*
+html, body
+{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+*/
+
+.backing
+{
+  background-color: #333;
+  height: 450px;
+  width: 450px * $sixteen-nine;
+  padding-top: 50px;
+}
+
+.display-board
+{
+  width: 350px * $four-three; //600px;
+  height: 350px; //600px;
+  margin: auto;
+  border-width: 1px 0 0 1px;
+  border-color: rgba(255,255,255,0.2);
+  border-style: solid;
+
+  background: $bg-gradient-fill;
+  background-origin: border-box;
+  box-shadow: 0 1px 14px rgba(0,0,0,0.4);
+
+  padding: 40px;
+
+  box-sizing: border-box;
+}
+
+.user
+{
+  $margin-h: 17px;
+  $margin-v: 6px;
+  $login-dialog-width: 217px;
+  $translationY: (0 - ($avatar-diameter * 0.666666) / 2);
+
+  margin: auto;
+
+  .avatar
+  {
+    margin: auto;
+    position: relative;
+    z-index: 2;
+
+
+    -webkit-transition-property: -webkit-transform, -webkit-filter, background-color;
+    -moz-transition-property: -moz-transform, -moz-filter, background-color;
+    -ms-transition-property: -ms-transform, -ms-filter, background-color;
+    transition-property: transform, filter, background-color, -webkit-filter;
+
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    transition-duration: 1s;
+
+    -webkit-transition-timing-function: cubic-bezier(0,0,0,1);
+    -moz-transition-timing-function: cubic-bezier(0,0,0,1);
+    -ms-transition-timing-function: cubic-bezier(0,0,0,1);
+    transition-timing-function: cubic-bezier(0,0,0,1);
+  }
+
+  .info
+  {
+    @include card();
+
+    position: relative;
+    z-index: 1;
+    margin: auto;
+
+    -webkit-transition-property: -webkit-transform, -webkit-filter, opacity;
+    -moz-transition-property: -moz-transform, -moz-filter, opacity;
+    -ms-transition-property: -ms-transform, -ms-filter, opacity;
+    transition-property: transform, filter, -webkit-filter, opacity;
+
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    transition-duration: 1s;
+
+
+    -webkit-transition-timing-function: cubic-bezier(0,0,0,1);
+    -moz-transition-timing-function: cubic-bezier(0,0,0,1);
+    -ms-transition-timing-function: cubic-bezier(0,0,0,1);
+    transition-timing-function: cubic-bezier(0,0,0,1);
+
+
+    .login.dialog
+    {
+      padding: $margin-v $margin-h;
+
+      button
+      {
+        display: block;
+        margin: auto;
+
+        &.dialog-default
+        {
+          margin-top: 20px;
+          width: $login-dialog-width;
+          margin-left: 0 - $margin-h;
+          height: 48px;
+          border-bottom-right-radius: 7px;
+          border-bottom-left-radius: 7px;
+          outline: none;
+
+          &:hover
+          {
+            background-color: $card-gradient-lo-col;
+          }
+
+          &:focus
+          {
+            background-color: $card-gradient-lo-col;
+            text-decoration: underline;
+          }
+
+          &:active
+          {
+            text-decoration: none;
+          }
+        }
+      }
+
+      input {
+        width: 100%;
+      }
+    }
+  }
+
+  .glass
+  {
+    position: relative;
+    z-index: 10;
+
+    opacity: 0;
+
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    transition-property: transform, opacity;
+
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    transition-duration: 1s;
+
+    -webkit-transition-timing-function: cubic-bezier(0,0,0,1);
+    -moz-transition-timing-function: cubic-bezier(0,0,0,1);
+    -ms-transition-timing-function: cubic-bezier(0,0,0,1);
+    transition-timing-function: cubic-bezier(0,0,0,1);
+  }
+
+  .name,
+  .tag-line,
+  .sign-out
+  {
+    @include light-label();
+    display: block;
+    text-align: center;
+  }
+
+  .tag-line
+  {
+    color: transparentize($light-label-col, 0.3);
+    font-size: $de-emphasized-font-size;
+  }
+
+  .sign-out
+  {
+    color: transparentize($light-label-col, 0.1);
+    font-family: $default-font-stack;
+    font-size: $de-emphasized-font-size;
+    border-top: 1px solid transparentize($light-label-col, 0.8);
+    margin: 7px auto;
+
+    &:hover
+    {
+      background-color: rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+      padding: inherit 1em;
+    }
+  }
+
+  label.status-label
+  {
+    display: block;
+    font-family: $light-font-stack;
+    color: $light-label-col;
+    font-weight: 200;
+    text-align: center;
+    opacity: 0;
+
+    -webkit-transition-property: -webkit-transform, opacity;
+    -moz-transition-property: -moz-transform, opacity;
+    -ms-transition-property: -ms-transform, opacity;
+    transition-property: transform, opacity;
+
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -ms-transition-duration: 1s;
+    transition-duration: 1s;
+
+    -webkit-transition-timing-function: cubic-bezier(0,0,0,1);
+    -moz-transition-timing-function: cubic-bezier(0,0,0,1);
+    -ms-transition-timing-function: cubic-bezier(0,0,0,1);
+    transition-timing-function: cubic-bezier(0,0,0,1);
+  }
+
+
+
+  &.is-login-dialog
+  {
+    .login.dialog
+    {
+      padding-top: $avatar-diameter * 0.666666;
+      width: $login-dialog-width;
+      height: 200px;
+
+      input[type=password]
+      {
+        margin-top: 28px;
+      }
+    }
+
+    .info
+    {
+      width: 217px;
+
+      transform: translateY($translationY);
+      -webkit-transform: translateY($translationY);
+      -moz-transform: translateY($translationY);
+      -ms-transform: translateY($translationY);
+    }
+
+    &.will-login
+    {
+      .info
+      {
+        -webkit-transform-origin: top center;
+        -webkit-transform: translateY($translationY) scale(0.7);
+        -webkit-filter: blur(50px);
+
+        -moz-transform-origin: top center;
+        -moz-transform: translateY($translationY) scale(0.7);
+        -moz-filter: blur(50px);
+
+        -ms-transform-origin: top center;
+        -ms-transform: translateY($translationY) scale(0.7);
+        -ms-filter: blur(50px);
+
+        transform-origin: top center;
+        transform: translateY($translationY) scale(0.7);
+        filter: blur(50px);
+
+        opacity: 0.7;
+      }
+
+      .avatar
+      {
+        -webkit-transform: translateY(66px);
+        -moz-transform: translateY(66px);
+        -ms-transform: translateY(66px);
+        transform: translateY(66px);
+
+        box-shadow: 0 -1px 2px rgba(0,0,0,0.5) inset, 0 0 5px 0 rgba(0,0,0,0.3);
+      }
+
+      label.status-label
+      {
+        opacity: 1;
+        -webkit-transform: translateY(-110px);
+        -moz-transform: translateY(-110px);
+        -ms-transform: translateY(-110px);
+        transform: translateY(-110px);
+
+        @include login_pulse_mx();
+      }
+    }
+
+    &.did-login
+    {
+      .info
+      {
+        -webkit-filter: blur(100px);
+        -moz-filter: blur(100px);
+        -ms-filter: blur(100px);
+        filter: blur(100px);
+
+        opacity: 0;
+      }
+
+      .avatar
+      {
+        -webkit-filter: none;
+        -moz-filter: none;
+        -ms-filter: none;
+        filter: none;
+
+        -webkit-transform: translateY(66px);
+        -moz-transform: translateY(66px);
+        -ms-transform: translateY(66px);
+        transform: translateY(66px);
+
+        background-blend-mode: initial;
+        background-color: initial;
+      }
+    }
+
+    &.did-get-info
+    {
+      .glass
+      {
+        -webkit-transform: translateY(-210px);
+        -moz-transform: translateY(-210px);
+        -ms-transform: translateY(-210px);
+        transform: translateY(-210px);
+
+        opacity: 1;
+      }
+
+      .avatar
+      {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+  }
+}

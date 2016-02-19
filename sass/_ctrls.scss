@@ -1,0 +1,66 @@
+@import "palette";
+@import "typeography";
+
+::-webkit-input-placeholder
+{
+  color: $hint-text-col;
+}
+
+:-moz-placeholder
+{
+  color: $hint-text-col;
+}
+
+::-ms-input-placeholder
+{
+  color: $hint-text-col;
+}
+
+@mixin default-ipt-text {
+
+  font-family: $default-font-stack;
+  font-size: $default-font-size;
+  line-height: $default-line-height;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  border-width: 0 0 1px 0;
+  border-stye: solid;
+  border-color: $input-border-col;
+  background-color: transparent;
+
+  margin: 0;
+}
+
+@mixin lined-focus
+{
+  outline: none;
+  background-image: linear-gradient(180deg, transparent, transparent 88%, rgba(120, 165, 214, 0.3));
+  border-bottom: 1px solid rgb(120, 165, 214);
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+
+  background-color: transparent;
+  border: none;
+
+  &:disabled
+  {
+    opacity: 0.3;
+  }
+}
+
+input[type=text],
+input[type=password]
+{
+  @include default-ipt-text;
+  &:focus
+  {
+    @include lined-focus();
+  }
+}

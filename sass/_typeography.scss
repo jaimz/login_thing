@@ -1,0 +1,19 @@
+@import "palette";
+
+$default-font-stack: AvenirNext-Regular, Lato, Arial, Helvetica, sans-serif;
+$light-font-stack: AvenirNext-UltraLight, Lato, Arial, Helvetica, sans-serif;
+$default-font-size: 14px;
+$default-line-height: 19px;
+
+$emphasized-font-size: 18px;
+$emphasized-line-height: 25px;
+
+$de-emphasized-font-size: 13px;
+$de-emphasized-line-height: 18px;
+
+@mixin light-label
+{
+  font-family: $light-font-stack;
+  color: $light-label-col;
+  font-weight: 200;
+}

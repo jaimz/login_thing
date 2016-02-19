@@ -1,0 +1,70 @@
+@import "palette";
+@import "animation";
+
+$avatar-diameter: 90px;
+
+/* @-webkit-keyframes search_pulse { from { -webkit-transform: scale(1); opacity: 1.0; } to { -webkit-transform: scale(1.2); opacity: 0.2; } } */
+
+@mixin avatar-mx($img-url: "", $diameter: $avatar-diameter)
+{
+  width: $diameter;
+  height: $diameter;
+
+  border: 1px solid $avatar-border-col;
+  box-shadow: 0px 0px 5px 0px $avatar-shadow-col, inset 0px 1px 3px 0px $avatar-shadow-col;
+  border-radius: 50%;
+
+  background-color: $avatar-bg-col;
+
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  position: relative;
+}
+
+.avatar {
+  @include avatar-mx();
+
+  &.with-image
+  {
+    background-image: url("../img/abu_dhabi.jpg");
+    -webkit-filter: unquote('grayscale(50%)');
+    -moz-filter: unquote('grayscale(50%)');
+    -ms-filter: unquote('grayscale(50%)');
+    filter: unquote('grayscale(50%)');
+
+    background-blend-mode: hard-light;
+    background-color: #ccc;
+
+
+    .pulser
+    {
+      display: none;
+    }
+  }
+
+  &.searching
+  {
+    .pulser
+    {
+      @include search_pulse_mx(1s);
+      /*-webkit-animation: search_pulse 1s cubic-bezier(0.22, 0.61, 0.36, 1) 0s infinite alternate;*/
+    }
+  }
+
+  .pulser
+  {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-image: url(../img/face_small.svg);
+    background-position: center 1px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  }
+}

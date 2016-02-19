@@ -1,0 +1,31 @@
+
+@-webkit-keyframes search_pulse { from { -webkit-transform: scale(1); opacity: 1.0; } to { -webkit-transform: scale(1.2); opacity: 0.2; } }
+@-moz-keyframes search_pulse { from { -moz-transform: scale(1); opacity: 1.0; } to { -moz-transform: scale(1.2); opacity: 0.2; } }
+@-o-keyframes search_pulse { from { -o-transform: scale(1); opacity: 1.0; } to { -o-transform: scale(1.2); opacity: 0.2; } }
+@-ms-keyframes search_pulse { from { -ms-transform: scale(1); opacity: 1.0; } to { -ms-transform: scale(1.2); opacity: 0.2; } }
+@keyframes search_pulse { from { transform: scale(1); opacity: 1.0; } to { transform: scale(1.2); opacity: 0.2; } }
+
+@-webkit-keyframes login_pulse { from { opacity: 1.0; } to { opacity: 0.2; } }
+@-moz-keyframes login_pulse {    from { opacity: 1.0; } to { opacity: 0.2; } }
+@-o-keyframes login_pulse {      from { opacity: 1.0; } to { opacity: 0.2; } }
+@-ms-keyframes login_pulse {     from { opacity: 1.0; } to { opacity: 0.2; } }
+@keyframes login_pulse {         from { opacity: 1.0; } to { opacity: 0.2; } }
+
+
+@mixin search_pulse_mx($duration: 1s, $timing: cubic-bezier(0.22, 0.61, 0.36, 1))
+{
+  -webkit-animation: search_pulse $duration $timing 0s infinite alternate;
+  -moz-animation: search_pulse $duration $timing 0s infinite alternate;
+  -o-animation: search_pulse $duration $timing 0s infinite alternate;
+  -ms-animation: search_pulse $duration $timing 0s infinite alternate;
+  animation: search_pulse $duration $timing 0s infinite alternate;
+}
+
+@mixin login_pulse_mx($duration: 1s, $timing: cubic-bezier(0.22, 0.61, 0.36, 1))
+{
+  -webkit-animation: login_pulse $duration $timing 0s infinite alternate;
+  -moz-animation: login_pulse $duration $timing 0s infinite alternate;
+  -o-animation: login_pulse $duration $timing 0s infinite alternate;
+  -ms-animation: login_pulse $duration $timing 0s infinite alternate;
+  animation: login_pulse $duration $timing 0s infinite alternate;
+}

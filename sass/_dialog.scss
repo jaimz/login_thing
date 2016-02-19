@@ -1,0 +1,22 @@
+@import "palette";
+
+@mixin card
+{
+  background-image: radial-gradient(circle at 50% 0, $card-gradient-hi-col 0%, $card-gradient-lo-col 100%);
+  box-shadow: 0px 2px 6px 0px $card-shadow-col, inset 0px 1px 0px 0px $card-bevel-col;
+  border-radius: 7px;
+}
+
+.dialog-default
+{
+  font-size: $emphasized-font-size;
+  line-height: $emphasized-line-height;
+  color: $default-button-col;
+}
+
+.dialog-cancel
+{
+  font-size: $de-emphasized-font-size;
+  line-height: $de-emphasized-line-height;
+  color: $cancel-button-col;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>login thing</title>
+  <link rel="stylesheet" type="text/css" href="./css/login_thing.css">
+</head>
+<body>
+  <div class="backing">
+    <div class="display-board">
+      <div class="user is-login-dialog" id='primary'>
+        <div class="avatar">
+          <div class='pulser'></div>
+        </div>
+        <div class="info">
+          <form class="login dialog" action="javascript:void(0)">
+            <input type="text" name="username"
+                   placeholder="Username"
+                   autocorrect="off"
+                   autocapitalize="off"
+                   spellcheck="false" />
+            <input type="password" name="password" placeholder="Password" />
+            <button type="submit" name="submit-login" class="dialog-default" disabled>Sign In</button>
+          </form>
+        </div>
+        <label class="status-label">Signing In...</label>
+        <div class="glass">
+
+          <div class="name">James O'Brien</div>
+          <div class="tag-line">Another rainy day in Cambridge</div>
+          <button class="sign-out" name="sign-out">Sign out...</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--script type="text/javascript" src="./script/highland.js"></script-->
+  <script type="text/javascript" src="./script/Bacon.js"></script>
+  <script type="text/javascript" src="./script/login_thing.js"></script>
+</body>
+</html>
